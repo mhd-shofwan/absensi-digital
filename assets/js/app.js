@@ -36,6 +36,9 @@ import { showDashboardPage, cleanupDashboardPage }
 import { showReportPage }
     from './pages/report-page.js';
 
+import { showTutorialPage }
+    from './pages/tutorial-page.js';
+
 import { listenForAppUpdates } from './settings.js';
 import { APP_CONFIG } from './config.js';
 
@@ -280,6 +283,12 @@ async function restorePage() {
 
         case 'report':
             await showReportPage(
+                content
+            );
+            break;
+
+        case 'tutorial':
+            await showTutorialPage(
                 content
             );
             break;

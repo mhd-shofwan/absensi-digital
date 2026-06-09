@@ -3,6 +3,7 @@ import { showTeachersPage } from './teachers-page.js';
 import { showEventsPage } from './events-page.js';
 import { showDashboardPage } from './dashboard-page.js';
 import { showReportPage } from './report-page.js';
+import { showTutorialPage } from './tutorial-page.js';
 import { logoutAdmin } from '../auth.js';
 
 export function showAdminMenu(content) {
@@ -79,6 +80,55 @@ export function showAdminMenu(content) {
             >
 
                 <button
+                    id="btnTutorial"
+                    class="
+                        bg-yellow-50
+
+                        rounded-3xl
+
+                        p-5
+
+                        shadow-sm
+
+                        hover:shadow-md
+                        hover:-translate-y-1
+
+                        transition-all
+
+                        text-left
+                        border
+                        border-yellow-200
+                    "
+                >
+
+                    <div class="text-4xl">
+                        💡
+                    </div>
+
+                    <div
+                        class="
+                            mt-4
+                            font-bold
+                            text-lg
+                            text-yellow-800
+                        "
+                    >
+                        Cara Penggunaan
+                    </div>
+
+                    <div
+                        class="
+                            text-sm
+                            text-yellow-600
+                            mt-1
+                        "
+                    >
+                        Tutorial aplikasi
+                    </div>
+
+                </button>
+
+                <button
                     id="btnTeachers"
                     class="
                         bg-white
@@ -119,7 +169,7 @@ export function showAdminMenu(content) {
                             mt-1
                         "
                     >
-                        Master data guru
+                        Kelola data guru
                     </div>
 
                 </button>
@@ -155,7 +205,7 @@ export function showAdminMenu(content) {
                             text-lg
                         "
                     >
-                        Kajian
+                        Event
                     </div>
 
                     <div
@@ -165,7 +215,7 @@ export function showAdminMenu(content) {
                             mt-1
                         "
                     >
-                        Kelola event kajian
+                        Kelola event
                     </div>
 
                 </button>
@@ -201,7 +251,7 @@ export function showAdminMenu(content) {
                             text-lg
                         "
                     >
-                        Device
+                        Perangkat
                     </div>
 
                     <div
@@ -433,6 +483,13 @@ export function showAdminMenu(content) {
         </div>
 
     `;
+
+    document
+        .getElementById('btnTutorial')
+        .addEventListener('click', () => {
+            localStorage.setItem('activePage', 'tutorial');
+            showTutorialPage(content);
+        });
 
     document
         .getElementById('btnTeachers')
