@@ -1,0 +1,61 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+// Ganti dengan konfigurasi Firebase Anda
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+async function run() {
+    // Ambil argumen dari terminal
+    const version = process.argv[2];
+    const email = process.argv[3];
+    const password = process.argv[4];
+    
+    if (!version || !email || !password) {
+        console.error("❌ Error: Argumen tidak lengkap!");
+        console.log("👉 Cara Pakai: node release.mjs <versi> <email_admin> <password_admin>");
+        console.log("Contoh: node release.mjs 1.0.1 admin@gmail.com password123");
+        process.exit(1);
+    }
+
+    console.log("🔑 Melakukan proses otentikasi...");
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log("🔓 Berhasil login sebagai Admin!");
+    } catch (err) {
+        console.error("❌ Gagal login. Pastikan email dan password Admin benar!");
+        console.error(err.message);
+        process.exit(1);
+    }
+
+    // Mengambil tanggal hari ini format YYYY-MM-DD
+    const date = new Date().toISOString().split('T')[0];
+    
+    console.log(`🚀 Mengirim perintah rilis versi: ${version} pada tanggal ${date}...`);
+    
+    try {
+        await setDoc(doc(db, "settings", "app"), {
+            version: version,
+            releaseDate: date
+        });
+        console.log(`✅ Berhasil merilis ${version}!`);
+        console.log("🔒 Semua aplikasi klien versi lama akan langsung terkunci dalam beberapa detik.");
+        process.exit(0);
+    } catch (err) {
+        console.error("❌ Gagal mengirim perintah rilis:", err);
+        process.exit(1);
+    }
+}
+
+run();

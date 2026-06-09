@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Fungsi bantuan untuk mengecek apakah user login sebagai Admin
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Koleksi "devices"
+    // Perangkat mendaftarkan dirinya sendiri (create). Semua bisa melihat (read).
+    // Tapi hanya Admin yang bisa menyetujui (update/delete).
+    match /devices/{deviceId} {
+      allow read, create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Koleksi "events"
+    // Kios absensi butuh membaca event mana yang aktif (read).
+    // Hanya Admin yang bisa menambah/menutup event (write).
+    match /events/{eventId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Koleksi "teachers"
+    // Kios butuh meload data guru untuk absen (read).
+    // Hanya Admin yang bisa menambah, mengubah, atau menghapus guru (write).
+    match /teachers/{teacherId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Koleksi "attendances"
+    // Kios butuh membuat rekaman kehadiran (create) dan membaca agar status ter-update (read).
+    // Hanya Admin yang bisa mengubah (misal mengubah izin/sakit) atau menghapus (update, delete).
+    match /attendances/{attendanceId} {
+      allow read, create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Koleksi "settings", dokumen "app"
+    // Kios membaca versi aplikasi (read). Hanya Admin (atau CLI Release Tool) yang mengubah (write).
+    match /settings/app {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+  }
+}

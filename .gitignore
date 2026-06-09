@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Build / Output / Temp / Notes
+# assets/css/output.css
+TODO
+releases/
+
+# Secret Configs
+assets/js/firebase.js
+release.mjs
