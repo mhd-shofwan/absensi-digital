@@ -1,5 +1,12 @@
 # Absensi Kajian 🕌
 
+![Version](https://img.shields.io/github/v/release/mhd-shofwan/absensi-digital)
+![License](https://img.shields.io/github/license/mhd-shofwan/absensi-digital)
+![Last Commit](https://img.shields.io/github/last-commit/mhd-shofwan/absensi-digital)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore-orange)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8)
+
 Aplikasi absensi *real-time* berbasis kios (*kiosk*) yang dirancang khusus untuk mempermudah proses pendataan kehadiran pada kajian dan pengajian. Dibangun menggunakan Vanilla JavaScript, Tailwind CSS, dan infrastruktur Firebase.
 
 ## 🌟 Fitur Utama
