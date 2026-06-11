@@ -1,4 +1,4 @@
-# Absensi Kajian 🕌
+# Absensi Event 🕌
 
 ![Version](https://img.shields.io/github/v/release/mhd-shofwan/absensi-digital)
 ![License](https://img.shields.io/github/license/mhd-shofwan/absensi-digital)
@@ -7,7 +7,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8)
 
-Aplikasi absensi *real-time* berbasis kios (*kiosk*) yang dirancang khusus untuk mempermudah proses pendataan kehadiran pada kajian dan pengajian. Dibangun menggunakan Vanilla JavaScript, Tailwind CSS, dan infrastruktur Firebase.
+Aplikasi absensi *real-time* berbasis kios (*kiosk*) yang dirancang khusus untuk mempermudah proses pendataan kehadiran pada event dan pengajian. Dibangun menggunakan Vanilla JavaScript, Tailwind CSS, dan infrastruktur Firebase.
 
 ## 🌟 Fitur Utama
 
@@ -15,7 +15,7 @@ Aplikasi absensi *real-time* berbasis kios (*kiosk*) yang dirancang khusus untuk
 - **Manajemen Perangkat (Device Control)**: Admin memegang kendali penuh. Perangkat/tablet baru wajib disetujui (*Approve*) sebelum bisa beroperasi sebagai mesin absensi.
 - **Dashboard Real-Time**: Pantau statistik kehadiran (Hadir, Sakit, Izin, Alpha) dan status tablet secara *live*.
 - **Import Massal CSV**: Masukkan banyak data guru/peserta sekaligus tanpa ribet dengan *template* CSV.
-- **Manajemen Kajian (Events)**: Buka atau tutup sesi absen pada kajian tertentu hanya dalam satu kali klik.
+- **Manajemen Event (Events)**: Buka atau tutup sesi absen pada event tertentu hanya dalam satu kali klik.
 - **Auto-Update Paksa (Force Reload)**: Dilengkapi dengan skrip khusus untuk membekukan layar dan memaksa seluruh perangkat lawas mengunduh pembaruan saat rilis versi baru.
 - **Export Laporan Excel**: Unduh rekap absensi guru (terpisah Ikhwan dan Akhwat) beserta jam kedatangan ke dalam format `.xlsx`.
 - **Undian Doorprize (Coming Soon)**: Fitur pengacakan (*Wheel of Names*) berdasarkan data kehadiran dan batas waktu absen.

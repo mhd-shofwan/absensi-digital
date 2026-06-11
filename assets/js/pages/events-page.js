@@ -66,7 +66,7 @@ export async function showEventsPage(content) {
             >
 
                 <div class="text-amber-100">
-                    Manajemen Kajian
+                    Manajemen Event
                 </div>
 
                 <h2
@@ -76,7 +76,7 @@ export async function showEventsPage(content) {
                         mt-1
                     "
                 >
-                    Event Kajian
+                    Daftar Event
                 </h2>
 
                 <div
@@ -117,7 +117,7 @@ export async function showEventsPage(content) {
                         <input
                             id="eventTitle"
                             type="text"
-                            placeholder="Nama Kajian"
+                            placeholder="Nama Event"
                             class="
                                 w-full
                                 h-12

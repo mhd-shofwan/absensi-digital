@@ -56,7 +56,7 @@ export async function showAttendancePage(
                             text-2xl
                             font-bold
                         ">
-                            Belum Ada Kajian Dibuka
+                            Belum Ada Event Dibuka
                         </h2>
 
                         <p class="
@@ -116,7 +116,7 @@ function renderActiveEventUI(content, event) {
                     text-blue-100
                     text-sm
                 ">
-                    Kajian Aktif
+                    Event Aktif
                 </div>
 
                 <h2 class="

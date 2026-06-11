@@ -1,4 +1,4 @@
-# Absensi Kajian 🕌
+# Absensi Event 🕌
 
 ![Version](https://img.shields.io/github/v/release/mhd-shofwan/absensi-digital)
 ![License](https://img.shields.io/github/license/mhd-shofwan/absensi-digital)
@@ -7,7 +7,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8)
 
-A lightweight, real-time, kiosk-based attendance system designed specifically for Islamic study circles (Kajian). Built with Vanilla JavaScript, Tailwind CSS, and Firebase.
+A lightweight, real-time, kiosk-based attendance system designed specifically for Islamic study circles (Event). Built with Vanilla JavaScript, Tailwind CSS, and Firebase.
 
 ## 🌟 Features
 

@@ -87,7 +87,7 @@ function renderDashboard(
                             font-bold
                         "
                     >
-                        Belum Ada Kajian Aktif
+                        Belum Ada Event Aktif
                     </h2>
 
                     <p
@@ -96,7 +96,7 @@ function renderDashboard(
                             text-slate-500
                         "
                     >
-                        Silakan buka event kajian terlebih dahulu
+                        Silakan buka event terlebih dahulu
                     </p>
 
                 </div>

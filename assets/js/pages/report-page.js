@@ -33,7 +33,7 @@ export async function showReportPage(content) {
             <!-- CONTENT -->
             <div class="bg-white rounded-3xl p-6 shadow-sm">
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-slate-700 mb-2">Pilih Kajian (Event)</label>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Pilih Event</label>
                     <select
                         id="eventSelect"
                         class="w-full h-12 px-4 rounded-2xl border border-slate-200 bg-slate-50 text-slate-700 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
@@ -67,9 +67,9 @@ export async function showReportPage(content) {
         events.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         if (events.length === 0) {
-            eventSelect.innerHTML = '<option value="">Belum ada event kajian</option>';
+            eventSelect.innerHTML = '<option value="">Belum ada event dibuka</option>';
         } else {
-            eventSelect.innerHTML = '<option value="">-- Pilih Kajian --</option>';
+            eventSelect.innerHTML = '<option value="">-- Pilih Event --</option>';
             events.forEach(event => {
                 const option = document.createElement('option');
                 option.value = event.id;
