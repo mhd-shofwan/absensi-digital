@@ -4,6 +4,7 @@ import {
 } from './device.js';
 
 import { loginAdmin, logoutAdmin } from './auth.js';
+import { escapeHtml } from './utils.js';
 
 import { showAdminMenu } from './pages/admin-menu.js';
 
@@ -111,7 +112,7 @@ async function init() {
                     </p>
 
                     <div class="bg-slate-100 p-3 rounded text-sm break-all">
-                        ${uuid}
+                        ${escapeHtml(uuid)}
                     </div>
 
                 </div>

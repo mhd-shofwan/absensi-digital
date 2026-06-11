@@ -8,11 +8,11 @@ service cloud.firestore {
     }
 
     // Koleksi "devices"
-    // Perangkat mendaftarkan dirinya sendiri (create). Semua bisa melihat (read).
-    // Tapi hanya Admin yang bisa menyetujui (update/delete).
+    // Tapi hanya Admin yang bisa melihat list (list), menyetujui (update), atau menghapus (delete).
     match /devices/{deviceId} {
-      allow read, create: if true;
-      allow update, delete: if isAdmin();
+      allow get: if true;
+      allow list, update, delete: if isAdmin();
+      allow create: if true;
     }
 
     // Koleksi "events"
@@ -32,10 +32,15 @@ service cloud.firestore {
     }
 
     // Koleksi "attendances"
-    // Kios butuh membuat rekaman kehadiran (create) dan membaca agar status ter-update (read).
+    // Kios butuh membaca agar status ter-update (read).
+    // Kios hanya bisa membuat rekaman kehadiran (create) jika deviceUuid-nya terdaftar & disetujui, atau jika Admin.
     // Hanya Admin yang bisa mengubah (misal mengubah izin/sakit) atau menghapus (update, delete).
     match /attendances/{attendanceId} {
-      allow read, create: if true;
+      allow read: if true;
+      allow create: if isAdmin() || (
+        request.resource.data.keys().hasAll(['deviceUuid']) &&
+        get(/databases/$(database)/documents/devices/$(request.resource.data.deviceUuid)).data.approved == true
+      );
       allow update, delete: if isAdmin();
     }
 

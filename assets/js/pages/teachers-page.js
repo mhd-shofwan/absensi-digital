@@ -12,6 +12,8 @@ import {
 }
 from './admin-menu.js';
 
+import { escapeHtml } from '../utils.js';
+
 let teacherData = [];
 let editTeacherId = null;
 
@@ -533,10 +535,10 @@ function renderTeacherList() {
                         <input type="checkbox" class="teacher-checkbox w-5 h-5 mt-1 rounded text-blue-600 border-slate-300" value="${teacher.id}">
                         <div>
                             <div class="text-lg font-bold">
-                                ${teacher.name}
+                                ${escapeHtml(teacher.name)}
                             </div>
                             <div class="mt-1 text-sm text-slate-500">
-                                ${teacher.gender}
+                                ${escapeHtml(teacher.gender)}
                             </div>
                         </div>
                     </div>

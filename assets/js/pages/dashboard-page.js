@@ -13,6 +13,8 @@ import {
 }
 from '../attendance.js';
 
+import { escapeHtml } from '../utils.js';
+
 let unsubscribeDashboard = null;
 
 export async function showDashboardPage(
@@ -194,7 +196,7 @@ function renderDashboard(
                         mt-1
                     "
                 >
-                    ${data.eventTitle}
+                    ${escapeHtml(data.eventTitle)}
                 </h2>
 
                 <div
@@ -616,12 +618,12 @@ function renderDashboard(
                         ${data.teachersList.filter(t => t.gender === 'ikhwan').map(t => `
                             <div class="flex items-center justify-between border-b border-slate-100 pb-3 last:border-0 last:pb-0">
                                 <div>
-                                    <div class="font-semibold text-slate-800">${t.name}</div>
+                                    <div class="font-semibold text-slate-800">${escapeHtml(t.name)}</div>
                                 </div>
                                 <select 
                                     class="status-select bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500" 
                                     data-teacher-id="${t.id}"
-                                    data-teacher-name="${t.name}"
+                                    data-teacher-name="${escapeHtml(t.name)}"
                                     data-teacher-gender="${t.gender}"
                                 >
                                     <option value="alpha" ${t.attendanceStatus === 'alpha' ? 'selected' : ''}>Alpha</option>
@@ -666,12 +668,12 @@ function renderDashboard(
                         ${data.teachersList.filter(t => t.gender === 'akhwat').map(t => `
                             <div class="flex items-center justify-between border-b border-slate-100 pb-3 last:border-0 last:pb-0">
                                 <div>
-                                    <div class="font-semibold text-slate-800">${t.name}</div>
+                                    <div class="font-semibold text-slate-800">${escapeHtml(t.name)}</div>
                                 </div>
                                 <select 
                                     class="status-select bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500" 
                                     data-teacher-id="${t.id}"
-                                    data-teacher-name="${t.name}"
+                                    data-teacher-name="${escapeHtml(t.name)}"
                                     data-teacher-gender="${t.gender}"
                                 >
                                     <option value="alpha" ${t.attendanceStatus === 'alpha' ? 'selected' : ''}>Alpha</option>

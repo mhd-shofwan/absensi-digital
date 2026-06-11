@@ -6,6 +6,8 @@ import {
 }
 from '../attendance.js';
 
+import { escapeHtml } from '../utils.js';
+
 let currentMode =
     localStorage.getItem(
         'attendance_mode'
@@ -123,14 +125,14 @@ function renderActiveEventUI(content, event) {
                     font-bold
                     mt-1
                 ">
-                    ${event.title}
+                    ${escapeHtml(event.title)}
                 </h2>
 
                 <div class="
                     mt-2
                     text-blue-100
                 ">
-                    ${event.date}
+                    ${escapeHtml(event.date)}
                 </div>
 
             </div>
@@ -408,7 +410,7 @@ function renderTeachers() {
                             font-bold
                             text-slate-800
                         ">
-                            ${teacher.name}
+                            ${escapeHtml(teacher.name)}
                         </div>
 
                         <div class="

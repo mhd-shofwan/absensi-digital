@@ -13,6 +13,8 @@ import {
 }
 from './admin-menu.js';
 
+import { escapeHtml } from '../utils.js';
+
 let eventData = [];
 let editEventId = null;
 
@@ -404,7 +406,7 @@ function renderEventList(content) {
                                     font-bold
                                 "
                             >
-                                ${event.title}
+                                ${escapeHtml(event.title)}
                             </div>
 
                             <div
@@ -414,7 +416,7 @@ function renderEventList(content) {
                                     mt-1
                                 "
                             >
-                                ${event.date}
+                                ${escapeHtml(event.date)}
                             </div>
 
                         </div>

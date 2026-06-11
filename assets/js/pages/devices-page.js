@@ -17,6 +17,8 @@ import {
 }
 from './admin-menu.js';
 
+import { escapeHtml } from '../utils.js';
+
 export async function showDevicesPage(
     content
 ) {
@@ -466,10 +468,10 @@ async function loadDevices(
                                         font-bold
                                     "
                                 >
-                                    ${
+                                    ${escapeHtml(
                                         device.deviceName ||
                                         'Belum Diberi Nama'
-                                    }
+                                    )}
                                 </div>
                                 
                                 ${isCurrent ? `
@@ -539,7 +541,7 @@ async function loadDevices(
                             break-all
                         "
                     >
-                        ${device.uuid}
+                        ${escapeHtml(device.uuid)}
                     </div>
 
                     <div
@@ -656,12 +658,13 @@ async function loadDevices(
     document.getElementById('selectAllDevices').checked = false;
     toggleDeleteDevicesButton();
 
-    bindActions(content);
+    bindActions(content, devices);
 
 }
 
 function bindActions(
-    content
+    content,
+    devices
 ) {
 
     document.querySelectorAll('.device-checkbox').forEach(cb => {
@@ -691,7 +694,7 @@ function bindActions(
                     if (!result.isConfirmed) return;
 
                     const device =
-                        deviceData.find(
+                        devices.find(
                             d =>
                                 d.id ===
                                 button.dataset.id
@@ -772,7 +775,7 @@ function bindActions(
                 async () => {
 
                     const device =
-                        deviceData.find(
+                        devices.find(
                             d =>
                                 d.id ===
                                 button.dataset.id
